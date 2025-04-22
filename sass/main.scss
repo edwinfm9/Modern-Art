@@ -8,15 +8,66 @@
     font-family: $font-primary;
 }
 
+
 header {
     width: 100%;
+    .hero {
+        @include respond-to(tablet){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+    }
+    .hero_text {
+        @include respond-to(tablet) {
+        display: grid;
+        grid-template-columns: 1fr;
+        position: absolute;
+        top: 124px;
+        left: 382px;
+        width: 400px;
+        height: 220px;
+        gap: 15px;
+
+    }
+    }
+    img.tablet {
+        display: none;
+        @include respond-to(tablet) {
+          display: block;
+          width: 451px;
+          height: 694px;
+          
+        }
+      }
+       img.mobile {
+        display: block;
+        @include respond-to(tablet) {
+          display: none;
+        }
+      }
      h1 {
     font-size: 80px;
     line-height: 88px;
     font-weight: 900;
     color: $black-color;
     margin: 20px;
+    @include respond-to(tablet){
+        font-size: 70px;
+        line-height: 70px;
+        font-weight: 900;
+        color: $black-color;
+        margin: 20px;
+
     }
+
+    .btn {
+        @include respond-to(tablet) {
+            display: flex;
+        }
+    }
+}
     p {
         font-family: $font-secondary;
         font-size: 20px;
@@ -24,6 +75,10 @@ header {
         margin: 16px;
         margin-bottom: 40px;
         color: $gray;
+        @include respond-to(tablet){
+            margin-botton: 75px;
+        }
+        
     }
     a {
         text-decoration: none;
@@ -36,19 +91,26 @@ header {
         margin:16px ;
         margin-right: 0;
         color: $white;
+       
+    
     }
     i {
         background-color: $pink-light;
         padding: 20px;
         font-size: 18px;
+        margin-left: -2px;
+        @include respond-to(tablet){
+            margin-left: -6px;
+        }
         
 
     }
-}
+}    
+  
 
-.arti article {
+.arti  {
+
     img{
-        margin-top: 120px;
         margin-left: 9px;
     }
 
@@ -70,11 +132,79 @@ header {
         margin-bottom: 40px;
         color: $gray; 
     }
+    
+    img:nth-of-type(3),
+    img.uno {
+        margin-top: 120px ;
+    }
+    @include respond-to(tablet) {
+        display: flex;
+        flex-direction: row-reverse;
+        
+        img {
+            width: 55%;
+    
+        }
+
+        article{
+            margin-top: 120px;
+            
+        }
+        p{
+            margin: 45px;
+            position: relative;
+            left: -32px;
+            top: -19px;
+        }
+    }
+    
+}
+
+.gallery{
+    @include respond-to(tablet){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    margin-bottom: 300px;
+    margin-top: 1%;
+
+    img:first-of-type {
+        width: 115%;
+        height: 125%;
+        grid-column: 1;
+        grid-row: 1;
+        
+    }
+    img:nth-of-type(2) {
+        width: 80%;
+        grid-column: 2;
+        grid-row: 1;
+        height: 61%;
+        margin-left: 20%;
+        z-index: 1;
+    }
+
+    .back {
+        grid-column: 2;
+        grid-row: 1;
+        z-index: 2;
+        position: relative;
+        margin: 0;
+        padding: 5%;
+        align-self: end;
+        height: 63%;
+        width: 79%;
+        left: 20%;
+        top: 25%;
+    }
+}
+
 }
 
 .gallery {
     img{
         margin-left:9px;
+
     }
     img:first-of-type {
         margin-bottom: 15px;
@@ -83,6 +213,7 @@ header {
     img:last-of-type {
         margin-bottom: 15px;
     }
+   
 
 
 }
@@ -90,10 +221,10 @@ header {
 .back {
     background-color: $black-color;
     padding: 20px;
-    width: 95%;
     margin-left: 9px;
     padding-bottom: 12px;
     margin-bottom: 100px;
+    margin-right: 9px;
     h2 {
         font-size: 60px;
         line-height: 60px;
@@ -113,6 +244,11 @@ header {
         color: $white
         
     }
+
+    @include respond-to(tablet) {
+        padding-bottom: 45px;
+    
+    }
 }
 
 
@@ -128,13 +264,39 @@ header {
         margin-bottom: 40px; 
         color: $white
     }
+    @include respond-to(tablet){
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        
+        p{
+            width: 42%;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        img{
+            width: 143px;
+            height: 49px;
+        
+        }
+    }
 }
 
 div.maps {
-    img{
-        display: block;
-
+    img.tablet {
+        display: none;
+        @include respond-to(tablet) {
+          display: block;
+          width: 100%;
+        }   
+    
     }
+    img.mobile {
+        display: block;
+        @include respond-to(tablet) {
+          display: none;
+        }
+    }    
     i {
         position: absolute;
         background-color: $pink-light;
@@ -155,6 +317,15 @@ div.maps {
         margin-right: 0;
         color: $white;
         text-transform: uppercase;
+    }
+    @include respond-to(tablet){
+        a{
+            left: 95px;
+        }
+
+        i {
+            left: 35px;
+        }
     }
 }
 
@@ -194,11 +365,23 @@ div.maps {
     p:last-of-type {
         margin-top: 15px;
     }
+    @include respond-to(tablet) {
+        display: flex;
+        padding: 62px;
+        font-style: normal;
+        align-items: flex-start;
+
+        h2 {
+            line-height: 54px;
+        }
+    }
 }
 
 .last.location {
     background-color: $pink-light;
     padding: 35px;
+    display: flex;
+    justify-content: space-between;
     
     p{
         font-family: $font-secondary;
