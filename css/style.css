@@ -16,6 +16,14 @@ header {
     overflow: hidden;
   }
 }
+@media (min-width: 1024px) {
+  header .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+}
 @media (min-width: 768px) and (max-width: 1023px) {
   header .hero_text {
     display: grid;
@@ -23,6 +31,18 @@ header {
     position: absolute;
     top: 124px;
     left: 382px;
+    width: 400px;
+    height: 220px;
+    gap: 15px;
+  }
+}
+@media (min-width: 1024px) {
+  header .hero_text {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: absolute;
+    top: 124px;
+    left: 60%;
     width: 400px;
     height: 220px;
     gap: 15px;
@@ -38,12 +58,37 @@ header img.tablet {
     height: 694px;
   }
 }
+@media (min-width: 1024px) {
+  header img.tablet {
+    display: block;
+    position: relative;
+    left: 70%;
+    width: 411px;
+    height: 645px;
+  }
+}
 header img.mobile {
   display: block;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   header img.mobile {
     display: none;
+  }
+}
+@media (min-width: 1024px) {
+  header img.mobile {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  header .fondo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    background-color: #151515;
+    z-index: 1;
   }
 }
 header h1 {
@@ -62,9 +107,17 @@ header h1 {
     margin: 20px;
   }
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  header h1 .btn {
-    display: flex;
+@media (min-width: 1024px) {
+  header h1 {
+    font-size: 70px;
+    line-height: 70px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin: 20px;
+    transform: translatex(-154%);
+    z-index: 2;
+    position: relative;
+    top: -16%;
   }
 }
 header p {
@@ -80,27 +133,96 @@ header p {
     margin-botton: 75px;
   }
 }
-header a {
-  text-decoration: none;
+@media (min-width: 1024px) {
+  header p {
+    font-family: "Outfit", sans-serif;
+    line-height: 30px;
+    margin: 16px;
+    margin-bottom: 40px;
+    color: #444444;
+    transform: translateY(-149%);
+    font-size: 23px;
+  }
+}
+header span {
+  padding: 20px 14px;
   background-color: #151515;
+  text-decoration: none;
   font-size: 18px;
   font-family: "Big Shoulders", sans-serif;
   font-weight: 900;
   letter-spacing: 5px;
-  padding: 20px;
+}
+@media (min-width: 1024px) {
+  header span {
+    padding: 21px;
+  }
+}
+header a {
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Big Shoulders", sans-serif;
+  font-weight: 900;
+  letter-spacing: 5px;
   margin: 16px;
   margin-right: 0;
   color: #FFFFFF;
+}
+@media (min-width: 1024px) {
+  header a {
+    transform: translateY(-149%);
+    font-size: 20px;
+  }
 }
 header i {
   background-color: #D5966C;
   padding: 20px;
   font-size: 18px;
-  margin-left: -2px;
+  margin-left: -10px;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   header i {
-    margin-left: -6px;
+    margin-left: -10px;
+  }
+}
+@media (min-width: 1024px) {
+  header i {
+    margin-left: -10px;
+    font-size: 18px;
+    padding: 21px;
+  }
+}
+header a:hover {
+  background-color: #D5966C;
+}
+header a:hover i {
+  background-color: #151515;
+}
+header a:hover span {
+  background-color: #D5966C;
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    transform: translateY(-761%);
+  }
+}
+
+.mobile-br {
+  display: inline;
+}
+@media (min-width: 1024px) {
+  .mobile-br {
+    display: none;
+  }
+}
+
+.desktop-br {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .desktop-br {
+    display: inline;
   }
 }
 
@@ -146,6 +268,28 @@ header i {
     top: -19px;
   }
 }
+@media (min-width: 1024px) {
+  .arti {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80%;
+    margin-inline: auto;
+  }
+  .arti img {
+    max-width: 500px;
+    height: 300px;
+  }
+  .arti article {
+    margin-top: 120px;
+    max-width: 415px;
+  }
+  .arti p {
+    margin: 45px;
+    position: relative;
+    left: -32px;
+    top: -19px;
+  }
+}
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .gallery {
@@ -181,6 +325,46 @@ header i {
     width: 79%;
     left: 20%;
     top: 25%;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    margin-bottom: 200px;
+    margin-top: 1%;
+    width: 85%;
+    margin-inline: auto;
+    gap: 15px;
+  }
+  .gallery img:first-of-type {
+    width: 93%;
+    height: 111%;
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 150px;
+  }
+  .gallery img:nth-of-type(2) {
+    width: 79%;
+    grid-column: 2;
+    grid-row: 1;
+    height: 54%;
+    margin-left: 20%;
+    z-index: 1;
+  }
+  .gallery .back {
+    grid-column: 2;
+    grid-row: 1;
+    z-index: 2;
+    position: relative;
+    margin: 0;
+    padding: 2%;
+    align-self: end;
+    height: 54%;
+    width: 79%;
+    left: 20%;
+    top: 11%;
   }
 }
 
@@ -253,6 +437,24 @@ header i {
     height: 49px;
   }
 }
+@media (min-width: 1024px) {
+  .last {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 100px;
+    padding-bottom: 70px;
+  }
+  .last p {
+    width: 39%;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .last img {
+    width: 143px;
+    height: 49px;
+  }
+}
 
 div.maps img.tablet {
   display: none;
@@ -263,6 +465,11 @@ div.maps img.tablet {
     width: 100%;
   }
 }
+@media (min-width: 1024px) {
+  div.maps img.tablet {
+    display: none;
+  }
+}
 div.maps img.mobile {
   display: block;
 }
@@ -271,15 +478,36 @@ div.maps img.mobile {
     display: none;
   }
 }
+@media (min-width: 1024px) {
+  div.maps img.mobile {
+    display: none;
+  }
+}
+div.maps img.desktop {
+  display: none;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  div.maps img.desktop {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  div.maps img.desktop {
+    display: block;
+    width: 100%;
+  }
+}
 div.maps i {
   position: absolute;
   background-color: #D5966C;
   padding: 25px;
   font-size: 20px;
+  left: -75px;
+  top: 0px;
 }
 div.maps a {
   position: absolute;
-  left: 55px;
+  left: 76px;
   text-decoration: none;
   background-color: #151515;
   font-size: 20px;
@@ -291,12 +519,28 @@ div.maps a {
   color: #FFFFFF;
   text-transform: uppercase;
 }
+div.maps a:hover {
+  background-color: #D5966C;
+}
+div.maps a:hover i {
+  background-color: black;
+}
 @media (min-width: 768px) and (max-width: 1023px) {
   div.maps a {
     left: 95px;
   }
   div.maps i {
-    left: 35px;
+    left: -74px;
+    top: 0;
+  }
+}
+@media (min-width: 1024px) {
+  div.maps a {
+    left: 250px;
+  }
+  div.maps i {
+    left: -72px;
+    top: 0px;
   }
 }
 
@@ -345,12 +589,28 @@ div.maps a {
     line-height: 54px;
   }
 }
+@media (min-width: 1024px) {
+  .ubi {
+    display: flex;
+    padding: 62px;
+    font-style: normal;
+    align-items: flex-start;
+  }
+  .ubi h2 {
+    line-height: 54px;
+  }
+  .ubi article {
+    margin-left: 470px;
+  }
+}
 
 .last.location {
   background-color: #D5966C;
   padding: 35px;
-  display: flex;
-  justify-content: space-between;
+}
+.last.location img {
+  width: 115px;
+  height: 48px;
 }
 .last.location p {
   font-family: "Outfit", sans-serif;

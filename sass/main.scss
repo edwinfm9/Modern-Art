@@ -18,6 +18,12 @@ header {
             position: relative;
             overflow: hidden;
         }
+        @include respond-to(desktop){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
     }
     .hero_text {
         @include respond-to(tablet) {
@@ -29,8 +35,19 @@ header {
         width: 400px;
         height: 220px;
         gap: 15px;
+        }
+        @include respond-to(desktop) {
+            display: grid;
+            grid-template-columns: 1fr;
+            position: absolute;
+            top: 124px;
+            left: 60%;
+            width: 400px;
+            height: 220px;
+            gap: 15px; 
+        }
 
-    }
+    
     }
     img.tablet {
         display: none;
@@ -38,7 +55,13 @@ header {
           display: block;
           width: 451px;
           height: 694px;
-          
+        }
+        @include respond-to(desktop){
+            display: block;
+            position: relative;
+            left: 70%;
+            width: 411px;
+            height: 645px;
         }
       }
        img.mobile {
@@ -46,7 +69,22 @@ header {
         @include respond-to(tablet) {
           display: none;
         }
+        @include respond-to(desktop) {
+            display: none;
+        }
       }
+    .fondo {
+        @include respond-to(desktop) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35%; 
+            height: 100%;
+            background-color: $black-color;
+            z-index: 1;
+        }
+    }
+
      h1 {
     font-size: 80px;
     line-height: 88px;
@@ -59,14 +97,20 @@ header {
         font-weight: 900;
         color: $black-color;
         margin: 20px;
-
+    }
+    @include respond-to(desktop){
+        font-size: 70px;
+        line-height: 70px;
+        font-weight: 900;
+        color: $white;
+        margin: 20px;
+        transform: translatex(-154%);
+        z-index: 2;
+        position: relative;
+        top: -16%
     }
 
-    .btn {
-        @include respond-to(tablet) {
-            display: flex;
-        }
-    }
+
 }
     p {
         font-family: $font-secondary;
@@ -78,36 +122,102 @@ header {
         @include respond-to(tablet){
             margin-botton: 75px;
         }
+
+        @include respond-to(desktop) {
+            font-family: "Outfit", sans-serif;
+            line-height: 30px;
+            margin: 16px;
+            margin-bottom: 40px;
+            color: $gray;
+            transform: translateY(-149%);
+            font-size: 23px;
+            
+        }
+            
         
     }
-    a {
-        text-decoration: none;
+    
+    span {
+        padding: 20px 14px;
         background-color: $black-color;
+        text-decoration: none;
         font-size: 18px;
         font-family: $font-primary;
         font-weight: 900;
         letter-spacing: 5px;
-        padding: 20px;
+
+        @include respond-to(desktop){
+            padding: 21px;
+        }
+        
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 18px;
+        font-family: $font-primary;
+        font-weight: 900;
+        letter-spacing: 5px;
         margin:16px ;
         margin-right: 0;
         color: $white;
-       
+        @include respond-to(desktop) {
+            transform: translateY(-149%);
+            font-size: 20px;   
+        }
     
     }
     i {
         background-color: $pink-light;
         padding: 20px;
         font-size: 18px;
-        margin-left: -2px;
+        margin-left: -10px;
         @include respond-to(tablet){
-            margin-left: -6px;
+            margin-left: -10px;
+        }
+        @include respond-to(desktop){
+            margin-left: -10px;
+            font-size: 18px;
+            padding: 21px;
         }
         
 
     }
-}    
-  
+    a:hover {
+        background-color: $pink-light;
 
+        i {
+            background-color: $black-color;
+        }
+
+        span {
+            background-color: $pink-light
+        };
+    }   
+}  
+
+.btn {
+  
+    
+    @include respond-to(desktop) {
+        transform: translateY(-761%) ;
+    }
+
+}
+  
+.mobile-br {
+    display: inline; 
+    @include respond-to(desktop){
+        display: none;
+    }   
+
+}
+.desktop-br {
+    display: none; 
+    @include respond-to(desktop){
+        display: inline;
+    }
+}
 .arti  {
 
     img{
@@ -158,6 +268,30 @@ header {
         }
     }
     
+    @include respond-to(desktop) {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 80%;
+        margin-inline: auto;
+        
+        img {
+            max-width: 500px;
+            height: 300px;
+    
+        }
+
+        article{
+            margin-top: 120px;
+            max-width: 415px;
+            
+        }
+        p{
+            margin: 45px;
+            position: relative;
+            left: -32px;
+            top: -19px;
+        }
+    }
 }
 
 .gallery{
@@ -198,8 +332,50 @@ header {
         top: 25%;
     }
 }
+    @include respond-to(desktop) {
+        display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    margin-bottom: 200px;
+    margin-top: 1%;
+    width: 85%;
+    margin-inline: auto;
+    gap: 15px;
 
+    img:first-of-type {
+        width: 93%;
+        height: 111%;
+        grid-column: 1;
+        grid-row: 1;
+        margin-left: 150px;
+        
+    }
+    img:nth-of-type(2) {
+        width: 79%;
+        grid-column: 2;
+        grid-row: 1;
+        height: 54%;
+        margin-left: 20%;
+        z-index: 1;
+    }
+
+    .back {
+        grid-column: 2;
+        grid-row: 1;
+        z-index: 2;
+        position: relative;
+        margin: 0;
+        padding: 2%;
+        align-self: end;
+        height: 54%;
+        width: 79%;
+        left: 20%;
+        top: 11%;
+    }
+    }
 }
+
+
 
 .gallery {
     img{
@@ -280,6 +456,23 @@ header {
         
         }
     }
+    @include respond-to(desktop) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 100px;
+        padding-bottom: 70px;
+        p{
+            width: 39%;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        img{
+            width: 143px;
+            height: 49px;
+        
+        }
+    }
 }
 
 div.maps {
@@ -288,6 +481,9 @@ div.maps {
         @include respond-to(tablet) {
           display: block;
           width: 100%;
+        }
+        @include respond-to(desktop) {
+            display: none;
         }   
     
     }
@@ -296,17 +492,32 @@ div.maps {
         @include respond-to(tablet) {
           display: none;
         }
-    }    
+        @include respond-to(desktop) {
+            display: none;
+        }
+    } 
+    img.desktop {
+        display: none;
+        @include respond-to(tablet){
+            display: none;
+        }
+        @include respond-to(desktop) {
+            display: block;
+            width: 100%;
+        }
+    }   
     i {
         position: absolute;
         background-color: $pink-light;
         padding: 25px;
         font-size: 20px;
+        left: -75px;
+        top: 0px;
     }
         
     a {
         position: absolute;
-        left: 55px;
+        left: 76px;
         text-decoration: none;
         background-color: $black-color;
         font-size: 20px;
@@ -318,13 +529,35 @@ div.maps {
         color: $white;
         text-transform: uppercase;
     }
+   
+    a:hover {
+        background-color: $pink-light; 
+      
+        i {
+          background-color: black; 
+        }
+      
+      }
     @include respond-to(tablet){
         a{
             left: 95px;
         }
 
         i {
-            left: 35px;
+            left: -74px;
+            top: 0;
+        }
+    }
+
+    @include respond-to(desktop) {
+        a{
+            left: 250px;
+        }
+
+        i {
+            left: -72px;
+            top: 0px;
+    
         }
     }
 }
@@ -375,15 +608,36 @@ div.maps {
             line-height: 54px;
         }
     }
+
+    @include respond-to(desktop) {
+        display: flex;
+        padding: 62px;
+        font-style: normal;
+        align-items: flex-start;
+
+        h2 {
+            line-height: 54px;
+        }
+        
+        article {
+            margin-left: 470px;
+        }
+    }
 }
 
 .last.location {
     background-color: $pink-light;
     padding: 35px;
-    display: flex;
-    justify-content: space-between;
+    
+    
+
+    img{ 
+        width: 115px;
+        height: 48px;
+    }
     
     p{
+        
         font-family: $font-secondary;
         font-size: 18px;
         line-height: 30px;
